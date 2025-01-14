@@ -18,4 +18,4 @@ FROM eclipse-temurin:17-jdk-jammy
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
-CMD ["sh", "-c", "java -jar target/*.jar"]
+CMD ["mvn spring-boot:run"]
