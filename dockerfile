@@ -14,14 +14,8 @@ RUN mvn clean package -DskipTests
 # Crear una nueva imagen para ejecutar la aplicación
 FROM eclipse-temurin:17-jdk-jammy
 
-# Establecer el directorio de trabajo para la ejecución
-WORKDIR /app
-
-# Copiar el archivo JAR generado desde la fase de construcción
-COPY --from=build /app/target/*.jar app.jar
-
 # Exponer el puerto en el que corre la aplicación (ajusta según tu aplicación)
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["sh", "-c", "java -jar target/*.jar"]
