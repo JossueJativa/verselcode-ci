@@ -35,7 +35,7 @@ jobs:
       run: mvn -B clean package --file pom.xml
 
     - name: Deploy to Vercel
-      run: vercel --prod --yes
+      run: vercel --prod
       env:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
